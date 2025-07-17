@@ -1,7 +1,8 @@
 <section class="bg-gray-100 py-24 text-center">
-  <h1 class="text-5xl font-bold mb-6">Welcome to Hyperland</h1>
+  <h1 class="text-hero-heading font-sans font-semibold text-brand">Welcome to Hyperland</h1>
+  <p class="text-body-l font-sans mt-4">EverPark is spreading its wings all over the country. Now there are already 13 EverParks in Finland.</p>
   <div class="space-x-4">
-    <button class="bg-blue-600 text-white py-2 px-4 rounded-xl">Nearest Park</button>
-    <button class="bg-gray-800 text-white py-2 px-4 rounded-xl">Watch Video</button>
+    <button class="btn-primary">Nearest Park</button>
+    <button class="btn-secondary">Watch Video</button>
   </div>
 </section>
