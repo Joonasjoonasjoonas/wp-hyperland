@@ -96,6 +96,7 @@
   font-size: var(--font-size-nav);
   line-height: var(--line-height-nav);
   letter-spacing: var(--letter-spacing-nav);
+  text-decoration: none;
 }
 
 .text-lang {

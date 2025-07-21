@@ -7,6 +7,7 @@
 namespace App;
 
 use Illuminate\Support\Facades\Vite;
+use App\Walkers\NavWalker;
 
 /**
  * Inject styles into the block editor.
@@ -153,3 +154,5 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+
