@@ -45,9 +45,12 @@
 }
 
 .text-hero-heading {
-  font-size: var(--font-size-hero);
-  line-height: var(--line-height-hero);
-  letter-spacing: var(--letter-spacing-hero);
+  font-family: var(--font-family-sans);
+  font-weight: 600;
+  font-size: var(--font-size-hero);           
+  line-height: var(--line-height-hero);       
+  letter-spacing: var(--letter-spacing-hero); 
+  color: var(--color-brand);
 }
 
 .text-h5 {

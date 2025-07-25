@@ -1,4 +1,10 @@
-<section class="py-24">
+<section class="py-24 relative">
+  {{-- Hero Vector SVG --}}
+  <img src="@asset('resources/images/hero-vector.svg')" 
+       alt="Hero Vector" 
+       class="absolute pointer-events-none"
+       style="top: 694.23px;">
+
   <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 lg:px-[120px]">
     
     {{-- Vasen osa: tekstit ja napit --}}
@@ -17,7 +23,7 @@
 
     {{-- Oikea osa: kuva --}}
     <div class="mt-12 lg:mt-0 lg:ml-16 flex-shrink-0">
-      <img src="@asset('resources/images/hero-image.png')" alt="Hero image" class="w-full max-w-md lg:max-w-lg">
+      <img src="@asset('resources/images/hero-image.png')" alt="Hero image" class="w-full max-h-[800px] h-auto">
     </div>
 
   </div>
