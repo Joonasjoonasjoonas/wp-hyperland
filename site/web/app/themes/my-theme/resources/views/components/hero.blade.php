@@ -1,13 +1,12 @@
-<section class="py-24 relative">
+<section class="h-[80vh] relative">
   {{-- Hero Vector SVG --}}
   <img src="@asset('resources/images/hero-vector.svg')" 
        alt="Hero Vector" 
        class="absolute pointer-events-none"
-       style="top: 694.23px;">
+       style="top: calc(50% + 120px);">
 
   <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 lg:px-[120px]">
     
-    {{-- Vasen osa: tekstit ja napit --}}
     <div class="text-center lg:text-left max-w-xl">
       <h1 class="text-hero-heading font-sans font-semibold text-brand">
         Welcome to Hyperland
@@ -21,8 +20,7 @@
       </div>
     </div>
 
-    {{-- Oikea osa: kuva --}}
-    <div class="mt-12 lg:mt-0 lg:ml-16 flex-shrink-0">
+    <div class="mt-12 lg:mt-0 lg:ml-16">
       <img src="@asset('resources/images/hero-image.png')" alt="Hero image" class="w-full max-h-[800px] h-auto">
     </div>
 
