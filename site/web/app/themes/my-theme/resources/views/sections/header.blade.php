@@ -32,7 +32,6 @@
         <button class="text-lang">Ru</button>
       </div>
 
-      {{-- Osta liput -nappi --}}
       <a href="#" class="btn-primary">Osta liput</a>
 
     </div>

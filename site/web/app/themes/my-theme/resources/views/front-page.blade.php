@@ -11,9 +11,7 @@
   {{-- Blog/News Section --}}
   <section class="bg-[#FAF5FC] py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-8">Latest News</h2>
 
-      {{-- Kortit --}}
       <div id="news-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         @php
           $all_posts = get_posts([
@@ -29,14 +27,13 @@
         @endforeach
       </div>
 
-      {{-- Näytä lisää -nappi --}}
       <div class="text-center">
         <button
           id="load-more"
-          class="btn-secondary"
+          class="btn-primary"
           data-visible-count="3"
         >
-          Näytä lisää uutisia
+          Lisää uutisia
         </button>
       </div>
     </div>
