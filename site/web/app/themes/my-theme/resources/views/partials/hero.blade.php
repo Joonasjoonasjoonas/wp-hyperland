@@ -1,5 +1,4 @@
 <section class="h-[80vh] relative">
-  {{-- Hero Vector SVG --}}
   <img src="@asset('resources/images/hero-vector.svg')" 
        alt="Hero Vector" 
        class="absolute pointer-events-none"
@@ -14,9 +13,9 @@
       <p class="text-body-l font-sans mt-4">
         EverPark is spreading its wings all over the country. Now there are already 13 EverParks in Finland.
       </p>
-      <div class="space-x-4 mt-8">
+      <div class="flex mt-8">
         <button class="btn-primary">Nearest Park</button>
-        <button class="btn-secondary flex items-center">
+        <button class="btn-secondary flex items-center ml-4">
           <span>Watch Video</span>
           <img src="@asset('resources/images/play-button-icon.svg')" alt="Play" class="ml-2">
         </button>

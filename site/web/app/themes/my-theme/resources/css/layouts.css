@@ -1,0 +1,14 @@
+@layer components {
+    header {
+      background-color: white;
+    }
+  
+    .site-header {
+      @apply w-full;
+    }
+  
+    .site-header-inner {
+      @apply max-w-screen-2xl mx-auto flex items-center justify-between h-[88px] px-[120px] relative;
+    }
+  }
+  
