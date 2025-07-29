@@ -16,7 +16,10 @@
       </p>
       <div class="space-x-4 mt-8">
         <button class="btn-primary">Nearest Park</button>
-        <button class="btn-secondary">Watch Video</button>
+        <button class="btn-secondary flex items-center">
+          <span>Watch Video</span>
+          <img src="@asset('resources/images/play-button-icon.svg')" alt="Play" class="ml-2">
+        </button>
       </div>
     </div>
 

@@ -154,6 +154,5 @@
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-brand);
-  color: white;
+  opacity: 0.8;
 }
