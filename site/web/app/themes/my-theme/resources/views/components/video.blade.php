@@ -1,28 +1,36 @@
-<section class="bg-video-bg h-screen flex items-center justify-center relative">
+<section class="min-h-screen bg-video-bg relative">
+  <div class="w-full h-full">
+    <div class="grid grid-cols-3 h-screen">
+      <!-- 1. sarake -->
+      <div class="place-self-center z-1">
+        <img src="@asset('resources/images/video-vector.svg')" alt="Vector Left" class="w-full max-w-[400px]">
+      </div>
 
-  <div class="relative w-[939px] h-[626px]">
+      <!-- 2. sarake (jätetään tyhjäksi, ei tarvita) -->
+      <div></div>
 
-    {{-- Vektorikuva vasemmalla (leikkaa sisään) --}}
-    <img src="@asset('resources/images/video-vector.svg')"
-         alt="Vector Left"
-         class="absolute left-[-250px] top-1/2 -translate-y-1/2 w-[400px] z-0 pointer-events-none"
+      <!-- 3. sarake -->
+      <div class="grid grid-rows-3 h-full z-1">
+        <div class="flex justify-center items-center">
+          <img src="@asset('resources/images/video-vector2.svg')" alt="Top Image" class="w-full max-w-[290px]">
+        </div>
+        <div></div>
+        <div class="flex justify-center items-center">
+          <img src="@asset('resources/images/video-vector3.svg')" alt="Bottom Image" class="w-full max-w-[290px]">
+        </div>
+      </div>
+    </div>
 
-    {{-- Vektorikuva oikeassa yläkulmassa --}}
-    <img src="@asset('resources/images/video-vector2.svg')"
-         alt="Vector Top Right"
-         class="absolute right-[-120px] top-[-40px] w-[220px] z-0 pointer-events-none">
-
-    {{-- Vektorikuva oikeassa alakulmassa --}}
-    <img src="@asset('resources/images/video-vector-bottomright.svg')"
-         alt="Vector Bottom Right"
-         class="absolute right-[-100px] bottom-[-30px] w-[180px] z-0 pointer-events-none">
-
-    {{-- Itse video (tai kuva, jos kuvakaappaus) --}}
-    <iframe class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full aspect-video z-10"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Hyperland Video" frameborder="0"
-            allowfullscreen></iframe>
-
+    <!-- Skaalautuva, keskitetty video -->
+     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[969px] aspect-[969/626] z-2">
+     <iframe 
+     src="https://www.youtube.com/embed/SLuFUa8KOe0"
+     title="YouTube video player"
+     class="w-full h-full"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+     allowfullscreen>
+     </iframe>
+     </div>
   </div>
-
 </section>

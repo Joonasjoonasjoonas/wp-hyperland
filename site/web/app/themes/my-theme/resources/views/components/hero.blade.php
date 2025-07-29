@@ -21,7 +21,7 @@
     </div>
 
     <div class="mt-12 lg:mt-0 lg:ml-16">
-      <img src="@asset('resources/images/hero-image.png')" alt="Hero image" class="w-full max-h-[800px] h-auto">
+      <img src="@asset('resources/images/hero-image.png')" alt="Hero image" class="w-full max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px]">
     </div>
 
   </div>
