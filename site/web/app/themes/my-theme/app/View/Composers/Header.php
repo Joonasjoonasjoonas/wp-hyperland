@@ -21,7 +21,7 @@ class Header extends Composer
     {
         return wp_nav_menu([
             'theme_location' => 'primary_navigation',
-            'menu_class' => 'flex gap-[32px]',
+            'menu_class' => 'flex flex-col lg:flex-row gap-4 lg:gap-8',
             'echo' => false,
             'container' => false,
             'walker' => new \App\Walkers\NavWalker(),

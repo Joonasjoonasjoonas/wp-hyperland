@@ -1,32 +1,32 @@
 :root {
+  --font-family-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
 
-    --font-family-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
-    --font-size-hero: 88px;
-    --line-height-hero: 1.1;
-    --letter-spacing-hero: 0;
-  
-    --font-size-h5: 32px;
-    --line-height-h5: 1.1;
-    --letter-spacing-h5: -0.02em;
-  
-    --font-size-body-l: 24px;
-    --line-height-body-l: 1.3;
-  
-    --font-size-body-m: 18px;
-    --line-height-body-m: 1.5;
-    --letter-spacing-body-m: -0.02em;
-  
-    --font-size-see-more: 16px;
-    --font-size-nav: 18px;
-    --font-size-lang: 16px;
-  
-    --color-brand: #5D328C;
-    --color-btn-primary-text: #FFFF01;
-    --color-video-bg: #2AE2A2;
-    --color-lang: #84798A;
-    --color-body-dark: #230C2E;
-  }
+  --font-size-hero: clamp(2.5rem, 6vw, 5.5rem);     
+  --line-height-hero: 1.1;
+  --letter-spacing-hero: 0;
 
-  a {
-    text-decoration: none;
-  }
+  --font-size-h5: clamp(1.5rem, 3vw, 2rem);         
+  --line-height-h5: 1.1;
+  --letter-spacing-h5: -0.02em;
+
+  --font-size-body-l: clamp(1.125rem, 2.5vw, 1.5rem); 
+  --line-height-body-l: 1.3;
+
+  --font-size-body-m: clamp(1rem, 2vw, 1.125rem);    
+  --line-height-body-m: 1.5;
+  --letter-spacing-body-m: -0.02em;
+
+  --font-size-see-more: clamp(0.875rem, 1.5vw, 1rem); 
+  --font-size-nav: clamp(1rem, 2vw, 1.125rem);        
+  --font-size-lang: clamp(0.875rem, 1.125vw, 1rem);   
+
+  --color-brand: #5D328C;
+  --color-btn-primary-text: #FFFF01;
+  --color-video-bg: #2AE2A2;
+  --color-lang: #84798A;
+  --color-body-dark: #230C2E;
+}
+
+a {
+  text-decoration: none;
+}
