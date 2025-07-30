@@ -1,12 +1,10 @@
 <section class="relative bg-[#FAF5FC] py-16 overflow-hidden">
-  {{-- Vasemman yläkulman koristekuva --}}
   <img 
     src="@asset('resources/images/cards-vector.svg')" 
     alt="Vasen koriste" 
     class="absolute top-4 z-10"
   >
 
-  {{-- Oikean alakulman koristekuva --}}
   <img 
     src="@asset('resources/images/cards-vector2.svg')" 
     alt="Oikea alakoriste" 
@@ -15,18 +13,12 @@
 
   <div class="container mx-auto px-4">
     <div id="news-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      @php
-        $all_posts = get_posts([
-          'numberposts' => -1,
-          'post_type' => 'post',
-        ]);
-      @endphp
-
-      @foreach ($all_posts as $index => $post)
-        <div class="news-card {{ $index > 2 ? 'hidden' : '' }}">
-          @include('components.card', ['post' => $post])
-        </div>
-      @endforeach
+    @foreach ($news_posts as $index => $post)
+      <div class="news-card {{ $index > 2 ? 'hidden' : '' }}">
+        @include('components.card', ['post' => $post])
+      </div>
+    @endforeach
+  </div>
     </div>
 
     <div class="text-center">

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\View\Composers\App;
+use App\View\Composers\News;
 use Roots\Acorn\Sage\SageServiceProvider;
 
 class ThemeServiceProvider extends SageServiceProvider
@@ -24,5 +26,9 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
         parent::boot();
+        
+        // Register view composers
+        $this->app['view']->composer('*', App::class);
+        $this->app['view']->composer('partials.blog', News::class);
     }
 }

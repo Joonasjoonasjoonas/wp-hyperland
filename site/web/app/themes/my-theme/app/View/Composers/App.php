@@ -6,19 +6,18 @@ use Roots\Acorn\View\Composer;
 
 class App extends Composer
 {
-    /**
-     * List of views served by this composer.
-     *
-     * @var array
-     */
     protected static $views = [
         '*',
     ];
 
-    /**
-     * Retrieve the site name.
-     */
-    public function siteName(): string
+    public function with(): array
+    {
+        return [
+            'siteName' => $this->siteName(),
+        ];
+    }
+
+    protected function siteName(): string
     {
         return get_bloginfo('name', 'display');
     }
