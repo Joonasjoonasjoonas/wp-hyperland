@@ -26,4 +26,7 @@
     --color-lang: #84798A;
     --color-body-dark: #230C2E;
   }
-  
+
+  a {
+    text-decoration: none;
+  }

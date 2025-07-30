@@ -14,11 +14,11 @@
         EverPark is spreading its wings all over the country. Now there are already 13 EverParks in Finland.
       </p>
       <div class="flex mt-8">
-        <button class="btn-primary">Nearest Park</button>
-        <button class="btn-secondary flex items-center ml-4">
+        <a href="https://www.google.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Nearest Park</a>
+        <a href="https://www.youtube.com" class="btn-secondary flex items-center ml-4" target="_blank" rel="noopener noreferrer">
           <span>Watch Video</span>
           <img src="@asset('resources/images/play-button-icon.svg')" alt="Play" class="ml-2">
-        </button>
+        </a>
       </div>
     </div>
 
