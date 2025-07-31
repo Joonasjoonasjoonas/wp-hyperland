@@ -15,10 +15,10 @@
   --font-size-body-m: clamp(1rem, 2vw, 1.125rem);    
   --line-height-body-m: 1.5;
   --letter-spacing-body-m: -0.02em;
-
+  
   --font-size-see-more: clamp(0.875rem, 1.5vw, 1rem); 
   --font-size-nav: clamp(1rem, 2vw, 1.125rem);        
-  --font-size-lang: clamp(0.875rem, 1.125vw, 1rem);   
+  --font-size-lang: clamp(0.875rem, 1.125vw, 1rem);
 
   --color-brand: #5D328C;
   --color-btn-primary-text: #FFFF01;
