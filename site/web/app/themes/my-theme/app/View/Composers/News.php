@@ -22,6 +22,7 @@ class News extends Composer
         return collect(get_posts([
             'numberposts' => -1,
             'post_type' => 'post',
+            'lang' => '',
         ]))->map(function ($post) {
             return (object) [
                 'ID' => $post->ID,

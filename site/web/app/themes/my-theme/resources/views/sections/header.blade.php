@@ -20,13 +20,35 @@
     </div>
 
     <div class="hidden lg:flex items-center space-x-6">
-      <div class="flex items-center space-x-1 text-lang ml-8">
-        <button>Fi</button><span>/</span>
-        <button>Sv</button><span>/</span>
-        <button>En</button><span>/</span>
-        <button>Ru</button>
+     
+    <nav class="ml-8">
+    @php
+      $languages = pll_the_languages([
+        'show_flags' => 0,
+        'show_names' => 1,
+        'display_names_as' => 'slug',
+        'echo' => 0,
+        'raw' => 1
+      ]);
+
+      $lang_list = array_values($languages);
+    @endphp
+
+    @if($lang_list)
+      <div class="flex items-center text-sm text-lang">
+        @foreach($lang_list as $i => $lang)
+          <a href="{{ $lang['url'] }}" class="{{ $lang['current_lang'] ? 'font-bold' : '' }}">
+            {{ ucfirst($lang['slug']) }}
+          </a>
+          @if($i < count($lang_list) - 1)
+            <span class="mx-2"> / </span>
+          @endif
+        @endforeach
       </div>
-      <a href="#" class="btn-primary ml-6 whitespace-nowrap">Osta liput</a>
+    @endif
+    </nav>
+  
+    <a href="#" class="btn-primary ml-6 whitespace-nowrap">{{ pll__('Buy Tickets') }}</a>
     </div>
   </div>
 
@@ -35,14 +57,18 @@
     <nav class="flex flex-col space-y-4 text-nav">
       {!! $primary_nav !!}
     </nav>
-    <div class="mt-4 flex flex-wrap gap-2 text-lang text-sm">
-      <button>Fi</button><span>/</span>
-      <button>Sv</button><span>/</span>
-      <button>En</button><span>/</span>
-      <button>Ru</button>
+    @if($lang_list)
+    <div class="mt-4 flex flex-wrap items-center gap-2 text-lang text-sm">
+      @foreach($lang_list as $i => $lang)
+        <a href="{{ $lang['url'] }}" class="{{ $lang['current_lang'] ? 'font-bold' : '' }}">
+          {{ ucfirst($lang['slug']) }}
+        </a>
+        @if($i < count($lang_list) - 1)
+          <span>/</span>
+        @endif
+      @endforeach
     </div>
-    <a href="#" class="btn-primary mt-4 inline-block">Osta liput</a>
-  </div>
+  @endif
 
   <script>
     const toggleBtn = document.getElementById('menu-toggle');

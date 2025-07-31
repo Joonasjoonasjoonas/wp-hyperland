@@ -155,4 +155,28 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
+/**
+ * Register strings for Polylang translation
+ */
+add_action('init', function () {
+    if (function_exists('pll_register_string')) {
+        // Header strings
+        pll_register_string('buy-tickets', 'Buy Tickets', 'Theme Buttons');
+        
+        // Hero section strings
+        pll_register_string('hero-title', 'Welcome to Hyperland', 'Hero Section');
+        pll_register_string('hero-description', 'EverPark is spreading its wings all over the country. Now there are already 13 EverParks in Finland.', 'Hero Section');
+        pll_register_string('nearest-park', 'Nearest Park', 'Hero Section');
+        pll_register_string('watch-video', 'Watch Video', 'Hero Section');
+        pll_register_string('play', 'Play', 'Hero Section');
+        
+        // Blog section strings
+        pll_register_string('load-more-news', 'Load More News', 'Blog Section');
+        
+        // Alt text strings
+        pll_register_string('left-decoration', 'Left decoration', 'Alt Texts');
+        pll_register_string('right-decoration', 'Right bottom decoration', 'Alt Texts');
+    }
+});
+
 

@@ -27,7 +27,7 @@
         class="btn-primary"
         data-visible-count="3"
       >
-        Lisää uutisia
+        {{ pll__('Load More News') }}
       </button>
     </div>
   </div>
