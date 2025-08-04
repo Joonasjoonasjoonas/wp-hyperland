@@ -74,17 +74,25 @@ NONCE_SALT='your-unique-salt-here'
 docker-compose up -d
 ```
 
-### 4. Install PHP Dependencies (Inside Docker)
+### 4. Rebuild Docker Environment (First Time Only)
 
 ```bash
-# Install Bedrock dependencies inside the PHP container
-docker-compose exec php composer install --working-dir=/var/www/html
-
-# Install theme dependencies inside the PHP container  
-docker-compose exec php composer install --working-dir=/var/www/html/web/app/themes/my-theme
+# Rebuild containers to include Composer
+docker-compose down
+docker-compose up -d --build
 ```
 
-### 5. Install Theme Frontend Dependencies
+### 5. Install PHP Dependencies
+
+```bash
+# Install Bedrock dependencies
+docker-compose exec php composer install
+
+# Install theme dependencies  
+docker-compose exec php composer install --working-dir=web/app/themes/my-theme
+```
+
+### 6. Install Theme Frontend Dependencies
 
 ```bash
 # Navigate to the theme directory on your host machine
@@ -92,7 +100,7 @@ cd site/web/app/themes/my-theme
 npm install
 ```
 
-### 6. Build Frontend Assets
+### 7. Build Frontend Assets
 
 ```bash
 # Development build with file watching
@@ -102,7 +110,7 @@ npm run dev
 npm run build
 ```
 
-### 7. Import Database
+### 8. Import Database
 
 **⚠️ Important: A database export file should be provided with this project.**
 
@@ -121,7 +129,7 @@ docker-compose exec db mysql -u wordpress -p wordpress < your-database-file.sql
 - Database: `wordpress`
 - Import the provided SQL file
 
-### 8. Install and Configure Polylang
+### 9. Install and Configure Polylang
 
 1. **Download Polylang Plugin**:
    - Go to http://localhost:8080/wp/wp-admin
@@ -133,14 +141,14 @@ docker-compose exec db mysql -u wordpress -p wordpress < your-database-file.sql
    - Go to Languages → Languages
    - Add languages in this order:
      - **Finnish (fi)** - Set as default language
-     - **English (en_US)**
+     - **English (en_AU)**
 
 3. **Configure Language Settings**:
    - Go to Languages → Settings
    - Set URL modifications to "Different domains" or "The language is set from the directory name in pretty permalinks"
    - Configure other settings as needed
 
-### 9. Verify String Translations
+### 10. Verify String Translations
 
 The theme includes pre-registered strings for Polylang translation:
 
