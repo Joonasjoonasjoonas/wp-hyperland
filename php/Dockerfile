@@ -4,7 +4,8 @@ FROM php:8.2-fpm-alpine
 RUN apk add --no-cache \
     curl \
     git \
-    unzip
+    unzip \
+    mariadb-client
 
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql

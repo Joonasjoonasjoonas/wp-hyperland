@@ -24,7 +24,7 @@ Before installation, ensure you have:
 - [Node.js](https://nodejs.org/) (version 20.0.0 or higher)
 - [Composer](https://getcomposer.org/) (optional, for local development)
 - Git
-- **Database export file** (should be provided separately)
+- **Database export file** (included as `wp-hyperland-database.sql`)
 
 ## Installation
 
@@ -77,7 +77,7 @@ docker-compose up -d
 ### 4. Rebuild Docker Environment (First Time Only)
 
 ```bash
-# Rebuild containers to include Composer
+# Rebuild containers to include Composer and MariaDB client tools
 docker-compose down
 docker-compose up -d --build
 ```
@@ -112,27 +112,21 @@ npm run build
 
 ### 8. Import Database
 
-**⚠️ Important: A database export file should be provided with this project.**
+**⚠️ Important: The database file `wp-hyperland-database.sql` is included with this project.**
 
-Import the database using one of these methods:
-
-#### Option A: Using Docker command line
 ```bash
-# Copy your database file to the project root, then:
-docker-compose exec db mysql -u wordpress -p wordpress < your-database-file.sql
+# Import directly from your project root directory
+cat wp-hyperland-database.sql | docker-compose exec -T db mariadb -u wordpress -pwordpress wordpress
 ```
 
-#### Option B: Using phpMyAdmin or database client
-- Connect to `localhost:3306`
-- Username: `wordpress`
-- Password: `wordpress`
-- Database: `wordpress`
-- Import the provided SQL file
+#### Verify Import Success
+- Visit **http://localhost:8080** - you should see the Hyperland website (not WordPress installation)
+- If you still see the installation page, check Docker logs: `docker-compose logs db`
 
 ### 9. Install and Configure Polylang
 
 1. **Download Polylang Plugin**:
-   - Go to http://localhost:8080/wp/wp-admin
+   - Go to http://localhost:8080/wp/wp-admin 
    - Navigate to Plugins → Add New
    - Search for "Polylang"
    - Install and activate the plugin
@@ -160,92 +154,3 @@ The theme includes pre-registered strings for Polylang translation:
 These can be translated via:
 **Languages → String translations**
 
-## Development
-
-### Frontend Development
-
-Start the Vite development server for hot reloading:
-
-```bash
-# From the theme directory (web/app/themes/my-theme)
-npm run dev
-```
-
-Features:
-- Hot module replacement
-- Tailwind CSS compilation
-- Blade template compilation
-- Asset optimization
-
-### Available Commands
-
-#### Theme Development
-```bash
-# Development with hot reload
-npm run dev
-
-# Production build
-npm run build
-
-# Translation management
-npm run translate        # Generate and update translation files
-npm run translate:compile # Compile .po files to .mo and .json
-```
-
-#### Code Quality
-```bash
-# PHP code formatting (from site directory)
-composer lint
-composer lint:fix
-```
-
-### Docker Services
-
-The application runs three services:
-
-- **nginx** (port 8080) - Web server
-- **php** - PHP-FPM 8.2+ with Composer and Acorn
-- **db** (MariaDB) - Database server
-
-#### Useful Docker Commands
-
-```bash
-# View logs
-docker-compose logs -f
-
-# Access PHP container (for WP-CLI, Acorn commands)
-docker-compose exec php bash
-
-# Access database
-docker-compose exec db mysql -u wordpress -p wordpress
-
-# Restart services
-docker-compose restart
-
-# Rebuild containers
-docker-compose up --build
-```
-
-### WordPress CLI (WP-CLI)
-
-Access WP-CLI through Docker:
-
-```bash
-docker-compose exec php wp --path=/var/www/html/web --info
-```
-
-### Laravel Acorn Commands
-
-The theme uses Acorn for Laravel integration:
-
-```bash
-# Access PHP container first
-docker-compose exec php bash
-
-# Then run Acorn commands
-cd web/app/themes/my-theme
-wp acorn vendor:publish
-wp acorn view:clear
-```
-
-## Project Structure
