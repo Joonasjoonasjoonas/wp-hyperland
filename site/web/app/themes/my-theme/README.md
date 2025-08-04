@@ -74,15 +74,7 @@ NONCE_SALT='your-unique-salt-here'
 docker-compose up -d
 ```
 
-### 4. Rebuild Docker Environment (First Time Only)
-
-```bash
-# Rebuild containers to include Composer and MariaDB client tools
-docker-compose down
-docker-compose up -d --build
-```
-
-### 5. Install PHP Dependencies
+### 4. Install PHP Dependencies
 
 ```bash
 # Install Bedrock dependencies
@@ -92,15 +84,15 @@ docker-compose exec php composer install
 docker-compose exec php composer install --working-dir=web/app/themes/my-theme
 ```
 
-### 6. Install Theme Frontend Dependencies
+### 5. Install Theme Frontend Dependencies
 
 ```bash
 # Navigate to the theme directory on your host machine
-cd site/web/app/themes/my-theme
+cd web/app/themes/my-theme
 npm install
 ```
 
-### 7. Build Frontend Assets
+### 6. Build Frontend Assets
 
 ```bash
 # Development build with file watching
@@ -110,7 +102,7 @@ npm run dev
 npm run build
 ```
 
-### 8. Import Database
+### 7. Import Database
 
 **⚠️ Important: The database file `wp-hyperland-database.sql` is included with this project.**
 
@@ -123,7 +115,7 @@ cat wp-hyperland-database.sql | docker-compose exec -T db mariadb -u wordpress -
 - Visit **http://localhost:8080** - you should see the Hyperland website (not WordPress installation)
 - If you still see the installation page, check Docker logs: `docker-compose logs db`
 
-### 9. Install and Configure Polylang
+### 8. Install and Configure Polylang
 
 1. **Download Polylang Plugin**:
    - Go to http://localhost:8080/wp/wp-admin 
@@ -135,14 +127,14 @@ cat wp-hyperland-database.sql | docker-compose exec -T db mariadb -u wordpress -
    - Go to Languages → Languages
    - Add languages in this order:
      - **Finnish (fi)** - Set as default language
-     - **English (en_AU)**
+     - **English (en_US)**
 
 3. **Configure Language Settings**:
    - Go to Languages → Settings
    - Set URL modifications to "Different domains" or "The language is set from the directory name in pretty permalinks"
    - Configure other settings as needed
 
-### 10. Verify String Translations
+### 9. Verify String Translations
 
 The theme includes pre-registered strings for Polylang translation:
 
