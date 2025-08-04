@@ -1,31 +1,242 @@
-<p align="center">
-  <a href="https://roots.io/sage/"><img alt="Sage" src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="100"></a>
-</p>
+# WP Hyperland
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/sage"><img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/sage?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square"></a>
-  <a href="https://github.com/roots/sage/actions/workflows/main.yml"><img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/sage/main.yml?branch=main&logo=github&label=CI&style=flat-square"></a>
-  <a href="https://bsky.app/profile/roots.dev"><img alt="Follow roots.dev on Bluesky" src="https://img.shields.io/badge/follow-@roots.dev-0085ff?logo=bluesky&style=flat-square"></a>
-</p>
+A modern multilingual WordPress application built with the complete **Roots Stack** featuring Docker containerization, Polylang multilingual support, and a custom Sage theme.
 
-# Sage
+## Tech Stack
 
-**Advanced hybrid WordPress starter theme with Laravel Blade and Tailwind CSS**
+### Roots Ecosystem
+- **[Bedrock](https://roots.io/bedrock/)** - WordPress boilerplate with Composer dependency management
+- **[Sage](https://roots.io/sage/)** - Advanced WordPress starter theme with Laravel Blade templating
+- **[Acorn](https://github.com/roots/acorn)** - Laravel framework integration for WordPress
 
-- 🔧 Clean, efficient theme templating with Laravel Blade
-- ⚡️ Modern front-end development workflow powered by Vite
-- 🎨 Out of the box support for Tailwind CSS
-- 🚀 Harness the power of Laravel with [Acorn integration](https://github.com/roots/acorn)
-- 📦 Block editor support built-in
+### Additional Technologies
+- **Docker** - Containerized development environment (nginx, PHP 8.2+, MariaDB)
+- **Polylang** - Multilingual plugin for Finnish and English (AU) support
+- **Vite** - Modern frontend build tool with hot module replacement
+- **Tailwind CSS** - Utility-first CSS framework
+- **Laravel Blade** - PHP templating engine
 
-Sage brings proper PHP templating and modern JavaScript tooling to WordPress themes. Write organized, component-based code using Laravel Blade, enjoy instant builds and CSS hot-reloading with Vite, and leverage Laravel's robust feature set through Acorn.
+## Prerequisites
 
-[Read the docs to get started](https://roots.io/sage/docs/installation/)
+Before installation, ensure you have:
 
-## Sponsors
+- [Docker](https://www.docker.com/get-started) and Docker Compose
+- [Node.js](https://nodejs.org/) (version 20.0.0 or higher)
+- [Composer](https://getcomposer.org/) (optional, for local development)
+- Git
+- **Database export file** (should be provided separately)
 
-Sage is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, [please consider sponsoring us](https://github.com/sponsors/roots).
+## Installation
 
-<div align="center">
-<a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://40q.agency/"><img src="https://cdn.roots.io/app/uploads/40q.svg" alt="40Q" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a> <a href="https://bonsai.so/"><img src="https://cdn.roots.io/app/uploads/bonsai.svg" alt="Bonsai" width="120" height="90"></a>
-</div>
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Joonasjoonasjoonas/wp-hyperland.git
+cd wp-hyperland
+```
+
+### 2. Environment Configuration
+
+Create environment file:
+
+```bash
+cd site
+cp .env.example .env
+```
+
+Configure your `.env` file:
+
+```env
+DB_NAME='wordpress'
+DB_USER='wordpress'
+DB_PASSWORD='wordpress'
+DB_HOST='db'
+
+WP_ENV='development'
+WP_HOME='http://localhost:8080'
+WP_SITEURL="${WP_HOME}/wp"
+
+# Generate your keys here: https://roots.io/salts.html
+AUTH_KEY='your-unique-key-here'
+SECURE_AUTH_KEY='your-unique-key-here'
+LOGGED_IN_KEY='your-unique-key-here'
+NONCE_KEY='your-unique-key-here'
+AUTH_SALT='your-unique-salt-here'
+SECURE_AUTH_SALT='your-unique-salt-here'
+LOGGED_IN_SALT='your-unique-salt-here'
+NONCE_SALT='your-unique-salt-here'
+```
+
+### 3. Install PHP Dependencies
+
+```bash
+# From the site directory
+composer install
+```
+
+### 4. Install Theme Dependencies
+
+```bash
+# Navigate to the Sage theme directory
+cd web/app/themes/my-theme
+composer install
+npm install
+```
+
+### 5. Build Frontend Assets
+
+```bash
+# Development build with file watching
+npm run dev
+
+# OR for production build
+npm run build
+```
+
+### 6. Start Docker Environment
+
+```bash
+# From the project root directory
+cd ../../../../
+docker-compose up -d
+```
+
+### 7. Import Database
+
+**⚠️ Important: A database export file should be provided with this project.**
+
+Import the database using one of these methods:
+
+#### Option A: Using Docker command line
+```bash
+# Copy your database file to the project root, then:
+docker-compose exec db mysql -u wordpress -p wordpress < your-database-file.sql
+```
+
+#### Option B: Using phpMyAdmin or database client
+- Connect to `localhost:3306`
+- Username: `wordpress`
+- Password: `wordpress`
+- Database: `wordpress`
+- Import the provided SQL file
+
+### 8. Install and Configure Polylang
+
+1. **Download Polylang Plugin**:
+   - Go to http://localhost:8080/wp/wp-admin
+   - Navigate to Plugins → Add New
+   - Search for "Polylang"
+   - Install and activate the plugin
+
+2. **Configure Languages**:
+   - Go to Languages → Languages
+   - Add languages in this order:
+     - **Finnish (fi)** - Set as default language
+     - **English (en_US)**
+
+3. **Configure Language Settings**:
+   - Go to Languages → Settings
+   - Set URL modifications to "Different domains" or "The language is set from the directory name in pretty permalinks"
+   - Configure other settings as needed
+
+### 9. Verify String Translations
+
+The theme includes pre-registered strings for Polylang translation:
+
+- Hero section strings (title, description, buttons)
+- Navigation elements
+- Button texts
+- Alt text descriptions
+
+These can be translated via:
+**Languages → String translations**
+
+## Development
+
+### Frontend Development
+
+Start the Vite development server for hot reloading:
+
+```bash
+# From the theme directory (web/app/themes/my-theme)
+npm run dev
+```
+
+Features:
+- Hot module replacement
+- Tailwind CSS compilation
+- Blade template compilation
+- Asset optimization
+
+### Available Commands
+
+#### Theme Development
+```bash
+# Development with hot reload
+npm run dev
+
+# Production build
+npm run build
+
+# Translation management
+npm run translate        # Generate and update translation files
+npm run translate:compile # Compile .po files to .mo and .json
+```
+
+#### Code Quality
+```bash
+# PHP code formatting (from site directory)
+composer lint
+composer lint:fix
+```
+
+### Docker Services
+
+The application runs three services:
+
+- **nginx** (port 8080) - Web server
+- **php** - PHP-FPM 8.2+ with Composer and Acorn
+- **db** (MariaDB) - Database server
+
+#### Useful Docker Commands
+
+```bash
+# View logs
+docker-compose logs -f
+
+# Access PHP container (for WP-CLI, Acorn commands)
+docker-compose exec php bash
+
+# Access database
+docker-compose exec db mysql -u wordpress -p wordpress
+
+# Restart services
+docker-compose restart
+
+# Rebuild containers
+docker-compose up --build
+```
+
+### WordPress CLI (WP-CLI)
+
+Access WP-CLI through Docker:
+
+```bash
+docker-compose exec php wp --path=/var/www/html/web --info
+```
+
+### Laravel Acorn Commands
+
+The theme uses Acorn for Laravel integration:
+
+```bash
+# Access PHP container first
+docker-compose exec php bash
+
+# Then run Acorn commands
+cd web/app/themes/my-theme
+wp acorn vendor:publish
+wp acorn view:clear
+```
+
+## Project Structure
