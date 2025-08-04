@@ -1,7 +1,7 @@
 <section class="h-[80vh] relative">
   <img src="@asset('resources/images/hero-vector.svg')" 
        alt="Hero Vector" 
-       class="absolute pointer-events-none z-1 w-12 sm:w-16 lg:w-auto"
+       class="absolute pointer-events-none z-1 w-12 sm:w-16 lg:w-32"
        style="top: calc(50% + 120px);">
 
   <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 lg:px-[120px]">

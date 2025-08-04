@@ -7,7 +7,6 @@ npm-debug.log
 
 # WordPress
 /web/wp/
-web/app/uploads/
 
 # Env & config
 .env

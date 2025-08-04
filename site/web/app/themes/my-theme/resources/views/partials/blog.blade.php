@@ -2,13 +2,13 @@
   <img 
     src="@asset('resources/images/cards-vector.svg')" 
     alt="Vasen koriste" 
-    class="absolute top-4 z-1 w-12 sm:w-16 lg:w-auto"
+    class="absolute top-4 z-1 w-12 sm:w-16 lg:w-28"
   >
 
   <img 
     src="@asset('resources/images/cards-vector2.svg')" 
     alt="Oikea alakoriste" 
-    class="absolute bottom-4 right-0 z-10 w-12 sm:w-16 lg:w-auto"
+    class="absolute bottom-4 right-0 z-10 w-12 sm:w-16 lg:w-24"
   >
 
   <div class="container mx-auto px-4">

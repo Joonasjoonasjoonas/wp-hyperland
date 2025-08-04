@@ -99,7 +99,7 @@ npm install
 npm run dev
 
 # OR for production build
-npm run build
+npm run build (run this first if you haven't)
 ```
 
 ### 7. Import Database
@@ -107,7 +107,7 @@ npm run build
 **⚠️ Important: The database file `wp-hyperland-database.sql` is included with this project.**
 
 ```bash
-# Import directly from your project root directory
+# Import directly from your project site directory
 cat wp-hyperland-database.sql | docker-compose exec -T db mariadb -u wordpress -pwordpress wordpress
 ```
 
@@ -118,8 +118,8 @@ cat wp-hyperland-database.sql | docker-compose exec -T db mariadb -u wordpress -
 ### 8. Install and Configure Polylang
 
 1. **Download Polylang Plugin**:
-   - Go to http://localhost:8080/wp/wp-admin 
-   - Navigate to Plugins → Add New
+   - Go to http://localhost:8080/wp/wp-admin (username: admin, password: salasana123)
+   - Navigate to Plugins → Add Plugin
    - Search for "Polylang"
    - Install and activate the plugin
 
