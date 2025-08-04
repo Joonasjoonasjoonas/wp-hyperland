@@ -67,23 +67,32 @@ LOGGED_IN_SALT='your-unique-salt-here'
 NONCE_SALT='your-unique-salt-here'
 ```
 
-### 3. Install PHP Dependencies
+### 3. Start Docker Environment
 
 ```bash
-# From the site directory
-composer install
+# From the project root directory
+docker-compose up -d
 ```
 
-### 4. Install Theme Dependencies
+### 4. Install PHP Dependencies (Inside Docker)
 
 ```bash
-# Navigate to the Sage theme directory
-cd web/app/themes/my-theme
-composer install
+# Install Bedrock dependencies inside the PHP container
+docker-compose exec php composer install --working-dir=/var/www/html
+
+# Install theme dependencies inside the PHP container  
+docker-compose exec php composer install --working-dir=/var/www/html/web/app/themes/my-theme
+```
+
+### 5. Install Theme Frontend Dependencies
+
+```bash
+# Navigate to the theme directory on your host machine
+cd site/web/app/themes/my-theme
 npm install
 ```
 
-### 5. Build Frontend Assets
+### 6. Build Frontend Assets
 
 ```bash
 # Development build with file watching
@@ -91,14 +100,6 @@ npm run dev
 
 # OR for production build
 npm run build
-```
-
-### 6. Start Docker Environment
-
-```bash
-# From the project root directory
-cd ../../../../
-docker-compose up -d
 ```
 
 ### 7. Import Database
