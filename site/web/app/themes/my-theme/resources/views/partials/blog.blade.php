@@ -2,7 +2,7 @@
   <img 
     src="@asset('resources/images/cards-vector.svg')" 
     alt="Vasen koriste" 
-    class="absolute top-4 z-1 w-12 sm:w-16 lg:w-28"
+    class="absolute top-4 z-1 w-12 sm:w-16 lg:w-18"
   >
 
   <img 

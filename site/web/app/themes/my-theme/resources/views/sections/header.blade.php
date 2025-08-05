@@ -52,7 +52,6 @@
     </div>
   </div>
 
-  <!-- MOBILE DROPDOWN MENU -->
   <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-md hidden px-6 py-4 lg:hidden">
     <nav class="flex flex-col space-y-4 text-nav">
       {!! $primary_nav !!}
